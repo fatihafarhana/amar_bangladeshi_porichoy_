@@ -1,0 +1,11 @@
+{
+  "name": "আমার বাংলাদেশি পরিচয়",
+  "short_name": "বাংলাদেশি পরিচয়",
+  "description": "নিজের জেলা, পছন্দ ও গর্ব দিয়ে তৈরি করুন আপনার বাংলাদেশি পরিচয় কার্ড।",
+  "lang": "bn",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e6f5eb",
+  "theme_color": "#075c45"
+}

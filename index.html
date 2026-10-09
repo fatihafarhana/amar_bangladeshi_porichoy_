@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#075c45">\n<link rel="manifest" href="./manifest.webmanifest">
+<title>আমার বাংলাদেশি পরিচয়</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+:root{--green:#075c45;--green2:#0c7a59;--red:#e53945;--cream:#fffaf0;--ink:#15372d}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,#e6f5eb,#fffaf0 55%,#f7e9d8);font-family:'Hind Siliguri',system-ui,sans-serif;color:var(--ink)}
+.wrap{max-width:760px;margin:auto;padding:18px 14px 36px}
+header{text-align:center;padding:20px 8px 18px}
+.flag{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid #d7eadf;border-radius:999px;padding:7px 13px;color:var(--green);font-size:13px;font-weight:700}
+.flag i{display:inline-block;width:22px;height:14px;background:#087c4f;border-radius:2px;position:relative}
+.flag i:after{content:"";position:absolute;background:#e73543;border-radius:50%;width:7px;height:7px;left:8px;top:3.5px}
+h1{font-size:clamp(30px,7vw,46px);line-height:1.12;margin:17px 0 8px;color:var(--green);font-weight:700}
+.sub{margin:0 auto;max-width:520px;color:#527066;font-size:16px}
+.hero-art{margin:20px auto 0;max-width:560px;background:linear-gradient(135deg,#075c45,#14956b);border-radius:24px;padding:18px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 28px #075c4522}
+.hero-art:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#ffffff0c;right:-40px;top:-70px}
+.hero-art:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid #ffffff30;right:20px;bottom:-70px}
+.hero-emoji{font-size:44px;line-height:1.1}
+.hero-art strong{display:block;font-size:21px;margin-top:6px}
+.hero-art span{font-size:13px;color:#d8f4e7}
+.panel{background:#fff;border:1px solid #e0eee5;border-radius:22px;padding:20px;margin:16px 0;box-shadow:0 8px 24px #15372d08}
+.panel h2{font-size:21px;margin:0 0 4px;color:var(--green)}
+.help{font-size:13px;color:#6b8178;margin:0 0 16px}
+label{display:block;font-weight:600;font-size:15px;margin:14px 0 7px}
+select,input{width:100%;border:1px solid #cfe1d5;border-radius:12px;padding:13px 12px;background:#fcfffd;font:inherit;color:#18392f;outline:none}
+select:focus,input:focus{border-color:#0c7a59;box-shadow:0 0 0 3px #0c7a5918}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.picks{display:flex;flex-wrap:wrap;gap:8px}
+.pick{border:1px solid #d7e8dd;border-radius:999px;padding:8px 12px;background:#f7fcf8;font:inherit;color:#355b4d;cursor:pointer}
+.pick.active{background:#075c45;color:white;border-color:#075c45}
+button{font-family:inherit;cursor:pointer}
+.primary{border:0;background:var(--green);color:#fff;border-radius:13px;padding:14px 16px;font-size:17px;font-weight:700;width:100%;margin-top:18px;box-shadow:0 7px 16px #075c4525}
+.primary:active,.secondary:active{transform:scale(.99)}
+.result{display:none}
+.identity{border-radius:22px;padding:18px;background:linear-gradient(145deg,#075c45,#0e8b63);color:white;position:relative;overflow:hidden}
+.identity:before{content:"";position:absolute;width:190px;height:190px;border:1px solid #ffffff35;border-radius:50%;right:-65px;top:-65px}
+.identity:after{content:"";position:absolute;width:135px;height:135px;border:1px solid #ffffff22;border-radius:50%;right:-30px;top:-36px}
+.cardtop{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:1}
+.mini-flag{background:#fff;border-radius:5px;width:35px;height:23px;position:relative;flex-shrink:0}
+.mini-flag:after{content:"";position:absolute;width:11px;height:11px;background:#e53945;border-radius:50%;top:6px;left:12px}
+.kicker{font-size:12px;color:#d8f4e7}
+.card-title{font-size:27px;line-height:1.15;font-weight:700;margin:18px 0 5px;position:relative;z-index:1}
+.card-slogan{font-size:15px;color:#e0f8ec;position:relative;z-index:1;margin:0 0 16px}
+.details{background:#ffffff12;border:1px solid #ffffff28;border-radius:15px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+.detail small{display:block;color:#c6ebd9;font-size:12px}
+.detail strong{font-size:15px;font-weight:600}
+.card-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid #ffffff35;padding-top:13px;margin-top:15px;position:relative;z-index:1;font-size:12px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.secondary{border:1px solid #cfe1d5;background:#fff;color:var(--green);border-radius:12px;padding:12px;font-size:15px;font-weight:600}
+.note{background:#fff8dc;border:1px solid #f1e3a9;padding:12px 14px;border-radius:13px;font-size:13px;color:#705e26}
+footer{text-align:center;color:#6b8178;font-size:12px;padding:18px 8px}
+@media(max-width:420px){.panel{padding:16px}.grid{grid-template-columns:1fr}.card-title{font-size:24px}.details{gap:9px}.hero-art{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="flag"><i></i> বাংলাদেশ আমার গর্ব</div>
+  <h1>আমার বাংলাদেশি<br>পরিচয় 🇧🇩</h1>
+  <p class="sub">আমি কোথাকার? আমার শেকড় কোথায়? নিজের পছন্দে তৈরি করুন আপনার বাংলাদেশি পরিচয় কার্ড।</p>
+  <div class="hero-art"><div class="hero-emoji">🌾 🛶 🌿</div><strong>নিজের পরিচয়, নিজের গর্ব</strong><span>আপনার জেলা • আপনার পছন্দ • আপনার বাংলাদেশ</span></div>
+</header>
+
+<section class="panel">
+  <h2>✨ আপনার পরিচয় তৈরি করুন</h2>
+  <p class="help">কয়েকটি পছন্দ বেছে নিন—আপনার জন্য তৈরি হবে একটি শেয়ারযোগ্য কার্ড।</p>
+  <label for="name">আপনার নাম (ঐচ্ছিক)</label>
+  <input id="name" maxlength="28" placeholder="যেমন: ফাতিহা" autocomplete="given-name">
+  <div class="grid">
+    <div><label for="division">বিভাগ</label><select id="division"><option value="">বিভাগ বাছাই করুন</option></select></div>
+    <div><label for="district">জেলা</label><select id="district"><option value="">আগে বিভাগ বাছাই করুন</option></select></div>
+  </div>
+  <label>আপনার প্রিয় খাবার</label>
+  <div class="picks" id="foods">
+    <button type="button" class="pick">ভর্তা-ভাত</button><button type="button" class="pick">পিঠা</button><button type="button" class="pick">বিরিয়ানি</button><button type="button" class="pick">মিষ্টি</button><button type="button" class="pick">মাছ-ভাত</button><button type="button" class="pick">ফুচকা</button>
+  </div>
+  <label>কোন দিকটি আপনার বেশি প্রিয়?</label>
+  <div class="picks" id="prides">
+    <button type="button" class="pick">আঞ্চলিক ভাষা</button><button type="button" class="pick">ইতিহাস ও ঐতিহ্য</button><button type="button" class="pick">প্রকৃতি</button><button type="button" class="pick">মানুষের আতিথেয়তা</button><button type="button" class="pick">সংস্কৃতি</button>
+  </div>
+  <label for="slogan">আপনার স্লোগান</label>
+  <select id="slogan">
+    <option>আমার শেকড়, আমার গর্ব 🇧🇩</option>
+    <option>জেলায় জেলায় বাংলাদেশ, হৃদয়ে এক দেশ</option>
+    <option>নিজের মাটির টান কখনো ভোলা যায় না</option>
+    <option>আমি বাংলাদেশকে ভালোবাসি</option>
+  </select>
+  <button class="primary" id="make">আমার পরিচয় কার্ড তৈরি করুন ✨</button>
+</section>
+
+<section class="panel result" id="result" aria-live="polite">
+  <h2>🎉 আপনার পরিচয় কার্ড তৈরি!</h2>
+  <p class="help">কার্ডটি ডাউনলোড করুন অথবা বন্ধুদের সঙ্গে শেয়ার করুন।</p>
+  <div class="identity" id="identityCard">
+    <div class="cardtop"><span class="kicker">আমার বাংলাদেশি পরিচয়</span><span class="mini-flag"></span></div>
+    <div class="card-title" id="outName">আমি বাংলাদেশের গর্বিত সন্তান</div>
+    <p class="card-slogan" id="outSlogan">আমার শেকড়, আমার গর্ব 🇧🇩</p>
+    <div class="details">
+      <div class="detail"><small>আমার বিভাগ</small><strong id="outDivision">—</strong></div>
+      <div class="detail"><small>আমার জেলা</small><strong id="outDistrict">—</strong></div>
+      <div class="detail"><small>আমার প্রিয় খাবার</small><strong id="outFood">—</strong></div>
+      <div class="detail"><small>আমার গর্ব</small><strong id="outPride">—</strong></div>
+    </div>
+    <div class="card-footer"><span>বাংলাদেশ 🇧🇩</span><span>নিজেকে জানুন • দেশকে ভালোবাসুন</span></div>
+  </div>
+  <div class="actions" style="margin-top:12px">
+    <button class="secondary" id="download">⬇ কার্ড ডাউনলোড</button>
+    <button class="secondary" id="share">↗ বন্ধুদের শেয়ার</button>
+  </div>
+  <p class="help" style="margin-top:12px">টিপস: ডাউনলোড করা কার্ডটি ফেসবুক স্টোরি, পোস্ট বা মেসেঞ্জারে পাঠাতে পারেন।</p>
+</section>
+<div class="note">🔒 গোপনীয়তা: এই নমুনা অ্যাপ আপনার তথ্য কোনো সার্ভারে পাঠায় না। নাম ও পছন্দ শুধু আপনার ব্রাউজারে ব্যবহার হয়।</div>
+<footer>🇧🇩 আমার বাংলাদেশি পরিচয় • একটি পরীক্ষামূলক বিনামূল্যের ওয়েব অ্যাপ<br>জেলা ও ঐতিহ্যসংক্রান্ত তথ্য যোগ করার আগে যাচাই করুন।</footer>
+</div>
+<script>
+const districts = {
+"ঢাকা বিভাগ":["ঢাকা","গাজীপুর","গোপালগঞ্জ","কিশোরগঞ্জ","মাদারীপুর","মানিকগঞ্জ","মুন্সিগঞ্জ","নারায়ণগঞ্জ","নরসিংদী","রাজবাড়ী","শরীয়তপুর","ফরিদপুর","টাঙ্গাইল"],
+"চট্টগ্রাম বিভাগ":["চট্টগ্রাম","কক্সবাজার","কুমিল্লা","চাঁদপুর","ব্রাহ্মণবাড়িয়া","ফেনী","লক্ষ্মীপুর","নোয়াখালী","খাগড়াছড়ি","রাঙামাটি","বান্দরবান"],
+"রাজশাহী বিভাগ":["রাজশাহী","বগুড়া","জয়পুরহাট","নওগাঁ","নাটোর","চাঁপাইনবাবগঞ্জ","পাবনা","সিরাজগঞ্জ"],
+"খুলনা বিভাগ":["খুলনা","যশোর","বাগেরহাট","চুয়াডাঙ্গা","ঝিনাইদহ","কুষ্টিয়া","মাগুরা","মেহেরপুর","নড়াইল","সাতক্ষীরা"],
+"বরিশাল বিভাগ":["বরিশাল","পটুয়াখালী","ভোলা","পিরোজপুর","বরগুনা","ঝালকাঠি"],
+"সিলেট বিভাগ":["সিলেট","মৌলভীবাজার","হবিগঞ্জ","সুনামগঞ্জ"],
+"রংপুর বিভাগ":["রংপুর","দিনাজপুর","গাইবান্ধা","কুড়িগ্রাম","লালমনিরহাট","নীলফামারী","পঞ্চগড়","ঠাকুরগাঁও"],
+"ময়মনসিংহ বিভাগ":["ময়মনসিংহ","জামালপুর","নেত্রকোনা","শেরপুর"]
+};
+const division = document.getElementById('division'), district = document.getElementById('district');
+Object.keys(districts).forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;division.appendChild(o)});
+division.addEventListener('change',()=>{district.innerHTML='<option value="">জেলা বাছাই করুন</option>';(districts[division.value]||[]).forEach(d=>{let o=document.createElement('option');o.value=d;o.textContent=d;district.appendChild(o)})});
+document.querySelectorAll('.picks').forEach(group=>group.addEventListener('click',e=>{if(!e.target.classList.contains('pick'))return;group.querySelectorAll('.pick').forEach(b=>b.classList.remove('active'));e.target.classList.add('active')}));
+function selected(group){return document.querySelector('#'+group+' .pick.active')?.textContent||'এখনো বাছাই করিনি'}
+document.getElementById('make').addEventListener('click',()=>{
+ if(!division.value||!district.value){alert('আপনার বিভাগ ও জেলা বেছে নিন।');return}
+ const name=document.getElementById('name').value.trim();
+ document.getElementById('outName').textContent=name?'আমি '+name+' — '+district.value+'-এর সন্তান':'আমি '+district.value+'-এর গর্বিত সন্তান';
+ document.getElementById('outSlogan').textContent=document.getElementById('slogan').value;
+ document.getElementById('outDivision').textContent=division.value;
+ document.getElementById('outDistrict').textContent=district.value;
+ document.getElementById('outFood').textContent=selected('foods');
+ document.getElementById('outPride').textContent=selected('prides');
+ const r=document.getElementById('result');r.style.display='block';r.scrollIntoView({behavior:'smooth',block:'start'});
+});
+function cardSvg(){
+ const name=document.getElementById('outName').textContent, slogan=document.getElementById('outSlogan').textContent;
+ const div=document.getElementById('outDivision').textContent, dist=document.getElementById('outDistrict').textContent, food=document.getElementById('outFood').textContent, pride=document.getElementById('outPride').textContent;
+ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#064d3a"/><stop offset="1" stop-color="#0e9369"/></linearGradient></defs><rect width="1080" height="1350" rx="54" fill="url(#g)"/><circle cx="950" cy="130" r="210" fill="none" stroke="#ffffff33" stroke-width="3"/><circle cx="950" cy="130" r="155" fill="none" stroke="#ffffff22" stroke-width="3"/><rect x="76" y="75" width="120" height="76" rx="8" fill="#fff"/><circle cx="136" cy="113" r="24" fill="#e53945"/><text x="240" y="126" font-family="sans-serif" font-size="38" fill="#d9f6e8">আমার বাংলাদেশি পরিচয়</text><text x="76" y="300" font-family="sans-serif" font-size="58" font-weight="bold" fill="#fff">${esc(name)}</text><text x="76" y="370" font-family="sans-serif" font-size="34" fill="#d9f6e8">${esc(slogan)}</text><rect x="65" y="450" width="950" height="610" rx="35" fill="#ffffff18" stroke="#ffffff50" stroke-width="2"/><g font-family="sans-serif" fill="#c9efdc" font-size="29"><text x="110" y="540">আমার বিভাগ</text><text x="575" y="540">আমার জেলা</text><text x="110" y="760">আমার প্রিয় খাবার</text><text x="575" y="760">আমার গর্ব</text></g><g font-family="sans-serif" fill="#ffffff" font-size="39" font-weight="bold"><text x="110" y="600">${esc(div)}</text><text x="575" y="600">${esc(dist)}</text><text x="110" y="820">${esc(food)}</text><text x="575" y="820">${esc(pride)}</text></g><path d="M90 1110 H990" stroke="#ffffff55" stroke-width="2"/><text x="90" y="1180" font-family="sans-serif" font-size="31" fill="#fff">বাংলাদেশ 🇧🇩</text><text x="90" y="1240" font-family="sans-serif" font-size="26" fill="#d9f6e8">নিজেকে জানুন • দেশকে ভালোবাসুন</text><text x="990" y="1290" text-anchor="end" font-family="sans-serif" font-size="20" fill="#d9f6e8">আমার বাংলাদেশি পরিচয়</text></svg>`;
+}
+document.getElementById('download').addEventListener('click',()=>{
+ const blob=new Blob([cardSvg()],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='amar-bangladeshi-porichoy.svg';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+document.getElementById('share').addEventListener('click',async()=>{
+ const text=`আমি আমার বাংলাদেশি পরিচয় কার্ড তৈরি করেছি! 🇧🇩\n${document.getElementById('outName').textContent}\nজেলা: ${district.value}\n${document.getElementById('outSlogan').textContent}\nতুমিও নিজের পরিচয় কার্ড তৈরি করো!`;
+ if(navigator.share){try{await navigator.share({title:'আমার বাংলাদেশি পরিচয়',text:text,url:location.href})}catch(e){}}
+ else if(navigator.clipboard){try{await navigator.clipboard.writeText(text);alert('শেয়ারের লেখা কপি হয়েছে! এখন ফেসবুক বা মেসেঞ্জারে পেস্ট করুন।')}catch(e){prompt('লেখাটি কপি করুন:',text)}}
+ else prompt('লেখাটি কপি করুন:',text);
+});
+</script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
